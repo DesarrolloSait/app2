@@ -1,0 +1,122 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Indicadores Md3</title>
+	<!--Libreria de estilos-->
+	<link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="estilos/estilo.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" type="text/css" />
+	<!--Librerias escenciales jqxwidgets-->
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/demos.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="../jqwidgets/jqxchart.core.js"></script>
+    <!--IndicadoresMd3 scripts-->
+    <script type="text/javascript" src="js/imd3menu.js"></script>
+    <script type="text/javascript" src="js/imd3charts.js"></script>
+</head>
+<body class="Default">
+	<header>
+
+
+        <!--Menu de imd3menu -->
+		<div id='jqxMenu'>
+
+             <!-- Empresa y logo -->
+            <div class="empresa-logo">
+               <a href="index.html"> <img src="imagenes/logosait.png" alt="sait_logo" id="logo"></a>
+            </div>
+            
+            <!-- usuario y controles de login/signup -->
+           <div class="user-login ">
+                
+                <!-- Nombre de usuario -->
+                <div class="user">
+                    <span>User1</span>
+                </div>
+                <!-- Login y sign up -->
+                <div class="login">        
+                    <a href="#">Iniciar Sesion </a>|
+                    <a href="#">Registrarse</a> 
+                </div>           
+            </div> 
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="ventasimd3.html">Ventas</a>
+                  <ul style='width: 250px;'> 
+                        <li><a href="#Education">Education</a></li>
+                        <li><a href="#Financial">Financial services</a></li>
+                        <li><a href="#Government">Government</a></li>
+                        <li><a href="#Manufacturing">Manufacturing</a></li>
+                        <li type='separator'></li>
+                    <li>Software Solutions
+                        <ul style='width: 220px;'>
+                            <li><a href="#ConsumerPhoto">Consumer photo and video</a></li>
+                            <li><a href="#Mobile">Mobile</a></li>
+                            <li><a href="#RIA">Rich Internet applications</a></li>
+                            <li><a href="#TechnicalCommunication">Technical communication</a></li>
+                            <li><a href="#Training">Training and eLearning</a></li>
+                            <li><a href="#WebConferencing">Web conferencing</a></li>
+                        </ul>
+                    </li>
+                         <li><a href="#">All industries and solutions</a></li>                   
+                    </ul>
+                </li>
+                <li><a href="#Products">Products</a>
+                    <ul>
+                        <li><a href="#PCProducts">PC products</a></li>
+                        <li><a href="#MobileProducts">Mobile products</a></li>
+                        <li><a href="#AllProducts">All products</a></li>
+                    </ul>
+                </li>     
+            </ul>
+            
+        </div>
+        <!--
+        <div class="logos">
+            <img src="imagenes/logosait.png" id="logo">
+        </div> -->
+    </header>
+
+    <!-- 
+    Seccion
+    Paneles de ventas, cobranza, inv y cobro por pago 
+    -->
+	<section>
+            <div class="col-md-5">
+                <h1>Ventas</h1>
+                <div id='chartContainer' style="width:525px; height:400px"></div>
+            </div>
+
+            <div class="col-md-5">
+                <h1>Cobranza</h1>
+                <div id='chartContainer2' style="width:525px; height:400px"></div>
+            </div>
+
+            <div class="col-md-5">
+                <h1>Inventario</h1>
+                <div id='chartContainer3' style="width:525px; height:400px"></div>
+            </div>
+
+            <div class="col-md-5">
+                <h1>Cobro por pago</h1>
+                <div id='chartContainer4' style="width:525px; height:400px"></div>
+            </div>
+
+	</section>
+
+<!-- 
+	<footer class="footer">
+       <div class="container">
+           <p class="text-muted">Footer Indicadores MD3</p>
+       </div>
+    </footer> -->
+</body>
+</html>
