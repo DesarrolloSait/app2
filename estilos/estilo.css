@@ -1,5 +1,10 @@
+body,html{
+	 height:100%;
+    margin:0;
+    padding:0;
+}
 body{
-	overflow-x: hidden; 
+    overflow-x: hidden; 
 }
 a{
 	text-decoration: none;
@@ -82,13 +87,19 @@ li:hover{
 
 /*footer*/
 .footer {
-	position: absolute;
-    bottom: 0;
-    width: 104%;
-    height: 100px;
+	margin-top:-100px;
+    height:100px;
     background-color: #f5f5f5;
 }
 
+.content2{
+    height:110%;
+    min-height:300px; 
+}
+.content{
+    height:100%;
+    min-height:300px; 
+}
 
 
 /*logotipos de empresa*/

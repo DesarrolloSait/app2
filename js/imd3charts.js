@@ -46,7 +46,7 @@ $(document).ready(function(){
                 {   minValue: 0,
                     maxValue: 50,
                     flip: true,
-                    title:{text: 'ventas'},
+                    title:{text: ' '},
                     labels: {
                         horizontalAlignment: 'right',
                         visible: true,
@@ -106,7 +106,7 @@ $(document).ready(function(){
                 xAxis:
                 {
                     dataField:'Name',
-               title:{text: 'Clientes'},
+               title:{text: ' '},
                     labels: {
                         horizontalAlignment: 'right',},
                     gridLines: { visible: true },
@@ -173,7 +173,7 @@ $(document).ready(function(){
                 xAxis:
                 {
                     dataField:'balance',
-               title:{text: 'Lotes'},
+               title:{text: ' '},
                     labels: {
                         horizontalAlignment: 'right',},
                     gridLines: { visible: true },
@@ -238,7 +238,7 @@ $(document).ready(function(){
                 xAxis:
                 {
                     dataField:'Name',
-               title:{text: 'Clientes'},
+               title:{text: ' '},
                     labels: {
                         horizontalAlignment: 'right',},
                     gridLines: { visible: true },
