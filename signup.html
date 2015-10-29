@@ -1,5 +1,7 @@
-<html>
+<!doctype html>
+<html lang="es-MX">
 <head>
+    <meta charset="utf-8">
 	<title>Indicadores Md3</title>
 	<!--Libreria de estilos-->
 	<link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" type="text/css" />
@@ -20,6 +22,17 @@
     <script type="text/javascript" src="js/imd3menu.js"></script>
     <script type="text/javascript" scr="js/imd3login.js"></script>
     <script type="text/javascript" src="js/imd3charts.js"></script>
+    <style>
+    .signup{
+        width: 40%;
+    }
+    .form-inline{
+        width: 50%;
+    }
+    .form-group{
+        width: 90%;
+    }
+    </style>
 </head>
 <body class="Default">
 	<header>
@@ -39,6 +52,10 @@
                 <div class="user">
                     <span>User1</span>
                 </div>
+                 <!-- image de usuario -->
+                <div class="user-img">
+                    <img src="imagenes/avatar.png" alt="user-img" width="40px" height="40px">
+                </div>
                 <!-- diseñar login.html y sign.html**** -->
                 <!-- Login y sign up -->
                 <div class="login">        
@@ -48,35 +65,17 @@
             </div> 
 
             <ul>
-                <li><a href="#Home">Inicio</a></li>
-                <li><a href="ventasimd3.html">Ventas</a>
-                    <ul style='width: 250px;'>
-                        <li><a href="#Education">Education</a></li>
-                        <li><a href="#Financial">Financial services</a></li>
-                        <li><a href="#Government">Government</a></li>
-                        <li><a href="#Manufacturing">Manufacturing</a></li>
-                        <li type='separator'></li>
-                    <li>Software Solutions
-                        <ul style='width: 220px;'>
-                            <li><a href="#ConsumerPhoto">Consumer photo and video</a></li>
-                            <li><a href="#Mobile">Mobile</a></li>
-                            <li><a href="#RIA">Rich Internet applications</a></li>
-                            <li><a href="#TechnicalCommunication">Technical communication</a></li>
-                            <li><a href="#Training">Training and eLearning</a></li>
-                            <li><a href="#WebConferencing">Web conferencing</a></li>
-                        </ul>
-                    </li>
-                        <li><a href="#">All industries and solutions</a></li>
-                    </ul>
-                </li>
-                <li><a href="#Products">Products</a>
-                    <ul>
-                        <li><a href="#PCProducts">PC products</a></li>
-                        <li><a href="#MobileProducts">Mobile products</a></li>
-                        <li><a href="#AllProducts">All products</a></li>
-                    </ul>
-                </li>     
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="ventasimd3.html">Area Administrativa</a></li>
+                <li><a href="ventasimd3.html">Ventas</a></li>
+                <li><a href="#Financial">Cobranza</a></li>
+                <li><a href="#Manufacturing">Inventario</a></li>
+                <li type='separator'></li>
+                <li><a href="#">Acerca De</a></li>                   
+                <li><a href="#Products">La empresa</a>     
             </ul>
+            
             
         </div>
         <!--
@@ -86,11 +85,49 @@
     </header>
 
 	<section>
-        <div class="signup">
-            <form action="">
-                
-            </form>
-        </div>
+        <center>    
+            <h1>Registrate</h1>
+            <div class="signup">
+                <form class="form-inline">
+
+                    <div class="form-group">
+                        <label>Nombre</label><br>
+                        <input type="text" class="form-control" id="inputName" placeholder="Nombre">
+                    </div>
+                        <br><br>
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="password" class="form-control" id="inputApe" placeholder="Apellido">
+                    </div>
+                        <br><br>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                    </div>
+                        <br><br>
+                    <div class="form-group">
+                        <label>Nombre de usuario</label>
+                        <input type="email" class="form-control" id="inputUser" placeholder="Nombre de usuario">
+                    </div>
+                        <br><br>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="inputPass" placeholder="Contraseña">
+                    </div>                  
+                        <br><br>
+                    <div class="form-group">
+                        <label>Confirma la contraseña</label>
+                        <input type="password" class="form-control" id="inputConfPass" placeholder="Confirmar contraseña">
+                    </div>  
+                        <br><br>
+    
+                  
+                  </div>
+
+                  <button type="submit" class="btn btn-default">Registrarse</button>
+                </form>
+            </div>
+        </center>
 	</section>
 
 	<footer class="footer">

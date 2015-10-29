@@ -1,5 +1,7 @@
-<html>
+<!doctype html>
+<html lang="es-MX">
 <head>
+    <meta charset="utf-8">
 	<title>Indicadores Md3</title>
 	<!--Libreria de estilos-->
 	<link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" type="text/css" />
@@ -24,7 +26,6 @@
 <body class="Default">
 	<header>
 
-
         <!--Menu de imd3menu -->
 		<div id='jqxMenu'>
             <!-- Empresa y logo -->
@@ -39,6 +40,10 @@
                 <div class="user">
                     <span>User1</span>
                 </div>
+                <!-- image de usuario -->
+                <div class="user-img">
+                    <img src="imagenes/avatar.png" alt="user-img" width="40px" height="40px">
+                </div>
                 <!-- diseñar login.html y sign.html**** -->
                 <!-- Login y sign up -->
                 <div class="login">        
@@ -48,34 +53,15 @@
             </div> 
 
             <ul>
-                <li><a href="#Home">Inicio</a></li>
-                <li><a href="ventasimd3.html">Ventas</a>
-                    <ul style='width: 250px;'>
-                        <li><a href="#Education">Education</a></li>
-                        <li><a href="#Financial">Financial services</a></li>
-                        <li><a href="#Government">Government</a></li>
-                        <li><a href="#Manufacturing">Manufacturing</a></li>
-                        <li type='separator'></li>
-                    <li>Software Solutions
-                        <ul style='width: 220px;'>
-                            <li><a href="#ConsumerPhoto">Consumer photo and video</a></li>
-                            <li><a href="#Mobile">Mobile</a></li>
-                            <li><a href="#RIA">Rich Internet applications</a></li>
-                            <li><a href="#TechnicalCommunication">Technical communication</a></li>
-                            <li><a href="#Training">Training and eLearning</a></li>
-                            <li><a href="#WebConferencing">Web conferencing</a></li>
-                        </ul>
-                    </li>
-                        <li><a href="#">All industries and solutions</a></li>
-                    </ul>
-                </li>
-                <li><a href="#Products">Products</a>
-                    <ul>
-                        <li><a href="#PCProducts">PC products</a></li>
-                        <li><a href="#MobileProducts">Mobile products</a></li>
-                        <li><a href="#AllProducts">All products</a></li>
-                    </ul>
-                </li>     
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="ventasimd3.html">Area Administrativa</a></li>
+                <li><a href="ventasimd3.html">Ventas</a></li>
+                <li><a href="#Financial">Cobranza</a></li>
+                <li><a href="#Manufacturing">Inventario</a></li>
+                <li type='separator'></li>
+                <li><a href="#">Acerca De</a></li>                   
+                <li><a href="#Products">La empresa</a>     
             </ul>
             
         </div>
@@ -86,11 +72,32 @@
     </header>
 
 	<section>
-        <div class="login">
-            <form action="">
-                <input type="email">
-                <input type="password">
+        <!-- interfaz de login -->
+      
+            <center>
+            <h1>Inicio de sesion</h1><br>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">E-mail</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox1" value="option1"> Recuerdame
+                    </label><br>
+                    <label class="checkbox-inline">
+                      <a href="#">Haz olvidado tu contraseña?</a>
+                    </label>
+                </div>
+                  <br>
+                  <button type="submit" class="btn btn-default">Iniciar sesion</button>
             </form>
+           
+</center>
         </div>
 	</section>
 

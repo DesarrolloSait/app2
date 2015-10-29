@@ -1,316 +1,282 @@
-$(document).ready(function () {
-            // preparando los datos
-            var source =
-            {
-                datatype: "json",
-                datafields: [
-                    { name: 'caducidad'},
-                    { name: 'cant' },
-                    { name: 'disp' }
-                ],
-                url: 'datos/lotesmty.json'
-            };
-            var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            // preparando la configuracion de la grafica
+//variables publicas
+var Plft = 6;   //padding left
+var Ptop = 2;   //padding top 
+var Prig = 10;   //padding rigth
+var Pbot = 1;   //Paddint bottom
+
+var Tleft   = 3;     //Title padding left
+var Ttop    = 3;     //Title padding top
+var Trig    = 3;     //Title padding right
+var Tbot    = 3;     //Title padding bottom
+$(document).ready(function(){
+            //probando con json    
+                var data = 
+                {
+                    datatype : 'json',
+                    datafields:[
+                    {name: 'id'},
+                    {name: 'vendedor'},
+                    {name: 'ventas'}
+                    ],
+                    url: 'datos/ventas.json'
+                };
+
+                var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
+
+            // configurar grafica
             var settings = {
-                title: "U.S. Stock Market Index Performance",
-                description: "NASDAQ Composite compared to S&P 500",
-                enableAnimations: true,
+                title: "Venta del dia",
+                description: "Estadistica de la venta del dia",
                 showLegend: true,
-                padding: { left: 10, top: 5, right: 10, bottom: 5 },
-                titlePadding: { left: 50, top: 0, right: 0, bottom: 10 },
+                enableAnimations: true,
+                padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
+                titlePadding: { left: Tleft, top: Ttop, right: Trig, bottom: Tbot },
+
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField: 'caducidad',
-                    formatFunction: function (value) {
-                        return value.getDate() + '-' + months[value.getMonth()] + '-' + value.getFullYear();
-                    },
-                    type: 'date',
-                    baseUnit: 'month',
-                    valuesOnTicks: true,
-                    minValue: '01-01-2014',
-                    maxValue: '01-01-2015',
-                    tickMarks: {
-                        visible: true,
-                        interval: 1,
-                        color: '#BCBCBC'
-                    },
-                    unitInterval: 1,
-                    gridLines: {
-                        visible: true,
-                        interval: 3,
-                        color: '#BCBCBC'
-                    },
+                    
+                    dataField: 'vendedor',
                     labels: {
-                        angle: -45,
-                        rotationPoint: 'topright',
-                        offset: { x: 0, y: -25 }
-                    }
+                        horizontalAlignment: 'right',},
+                    gridLines: { visible: true },
+                    flip: false
                 },
                 valueAxis:
-                {
-                    visible: true,
-                    title: { text: 'Daily Closing Price<br>' },
-                    tickMarks: { color: '#BCBCBC' }
+                {   minValue: 0,
+                    maxValue: 50,
+                    flip: false,
+                    title:{text: 'ventas'},
+                    labels: {
+                        horizontalAlignment: 'right',
+                        visible: true,
+                        formatFunction: function (value) {
+                            return (value);
+                        }
+                    }
                 },
-                colorScheme: 'scheme04',
+                colorScheme: 'scheme01',
                 seriesGroups:
                     [
                         {
-                            type: 'line',
+                            type: 'column',
+                            orientation: 'vertical',
+                            columnsGapPercent: 200,
+                            toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'cant', displayText: 'cant' },
-                                    { dataField: 'disp', displayText: 'disp' }
+                                    { dataField: 'ventas', displayText: 'ventas' }
                                 ]
                         }
                     ]
             };
-            // configura la grafica
+            // ejecutar grafica
             $('#chartContainer').jqxChart(settings);
         });
 
 
 
-        
 
+$(document).ready(function(){
+            //probando con json 
+          
 
+                var data = 
+                {
+                    datatype : 'json',
+                    datafields:[
+                    {name: 'lote'},
+                    {name: 'disp'},
+                    {name: 'numart'}
+                    ],
+                    url: 'datos/lotesmty.json'
+                };
 
-// grafica 2
-$(document).ready(function () {
-            // preparando los datos
-            var source =
-            {
-                datatype: "json",
-                datafields: [
-                    { name: 'caducidad' },
-                    { name: 'cajas' },
-                    { name: 'disp' }
-                ],
-                url: 'datos/lotesmty.json'
-            };
-            var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            // preparando la configuracion de la grafica
+                var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
+
+            // configurar grafica
             var settings = {
-                title: "U.S. Stock Market Index Performance",
-                description: "NASDAQ Composite compared to S&P 500",
-                enableAnimations: true,
+                title: "Cobranza",
+                description: "Estadistica de cobranza",
                 showLegend: true,
-                padding: { left: 10, top: 5, right: 10, bottom: 5 },
-                titlePadding: { left: 50, top: 0, right: 0, bottom: 10 },
+                enableAnimations: true,
+                padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
+                titlePadding: { left: Tleft, top: Ttop, right: Trig, bottom: Tbot },
+
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField: 'Date',
-                    formatFunction: function (value) {
-                        return value.getDate() + '-' + months[value.getMonth()] + '-' + value.getFullYear();
-                    },
-                    type: 'date',
-                    baseUnit: 'month',
-                    valuesOnTicks: true,
-                    minValue: '01-01-2014',
-                    maxValue: '01-01-2015',
-                    tickMarks: {
-                        visible: true,
-                        interval: 1,
-                        color: '#BCBCBC'
-                    },
-                    unitInterval: 1,
-                    gridLines: {
-                        visible: true,
-                        interval: 3,
-                        color: '#BCBCBC'
-                    },
+                    dataField:'lote',
+               title:{text: 'Lotes'},
                     labels: {
-                        angle: -45,
-                        rotationPoint: 'topright',
-                        offset: { x: 0, y: -25 }
-                    }
+                        horizontalAlignment: 'right',},
+                    gridLines: { visible: true },
+                    flip: false
                 },
                 valueAxis:
-                {
-                    visible: true,
-                    title: { text: 'Daily Closing Price<br>' },
-                    tickMarks: { color: '#BCBCBC' }
+                {  
+                    flip: false,
+                    title:{text: 'Clave'},
+                    labels: {
+                        horizontalAlignment: 'right',
+                        visible: true,
+                        formatFunction: function (value) {
+                            return (value);
+                        }
+                    }
                 },
-                colorScheme: 'scheme04',
+                colorScheme: 'scheme02',
                 seriesGroups:
                     [
                         {
-                            type: 'line',
+                            type: 'column',
+                            orientation: 'vertical',
+                            columnsGapPercent: 200,
+                            toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'cajas', displayText: 'cajas' },
-                                    { dataField: 'disp', displayText: 'disp' }
+                                    { dataField: 'numart', displayText: 'clave' }
                                 ]
                         }
                     ]
             };
-            // configura la grafica
+            // ejecutar grafica
             $('#chartContainer2').jqxChart(settings);
         });
 
 
 
+$(document).ready(function(){
+            //probando con json    
+                var data = 
+                {
+                    datatype : 'json',
+                    datafields:[
+                    {name: 'lote'},
+                    {name: 'disp'},
+                    {name: 'numart'}
+                    ],
+                    url: 'datos/lotesmty.json'
+                };
 
+                var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
 
-
-
-
-
-
-
-// grafica 3
-$(document).ready(function () {
-            // preparando los datos
-            var source =
-            {
-                datatype: "json",
-                datafields: [
-                    { name: 'caducidad' },
-                    { name: 'cajas' },
-                    { name: 'disp' }
-                ],
-                url: 'datos/lotesmty.json'
-            };
-            var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            // preparando la configuracion de la grafica
+            // configurar grafica
             var settings = {
-                title: "U.S. Stock Market Index Performance",
-                description: "NASDAQ Composite compared to S&P 500",
-                enableAnimations: true,
+                title: "Inventario",
+                description: "Estadistica de inventario",
                 showLegend: true,
-                padding: { left: 10, top: 5, right: 10, bottom: 5 },
-                titlePadding: { left: 50, top: 0, right: 0, bottom: 10 },
+                enableAnimations: true,
+                padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
+                titlePadding: { left: Tleft, top: Ttop, right: Trig, bottom: Tbot },
+
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField: 'Date',
-                    formatFunction: function (value) {
-                        return value.getDate() + '-' + months[value.getMonth()] + '-' + value.getFullYear();
-                    },
-                    type: 'date',
-                    baseUnit: 'month',
-                    valuesOnTicks: true,
-                    minValue: '01-01-2014',
-                    maxValue: '01-01-2015',
-                    tickMarks: {
-                        visible: true,
-                        interval: 1,
-                        color: '#BCBCBC'
-                    },
-                    unitInterval: 1,
-                    gridLines: {
-                        visible: true,
-                        interval: 3,
-                        color: '#BCBCBC'
-                    },
+                    dataField:'lote',
+               title:{text: 'Lotes'},
                     labels: {
-                        angle: -45,
-                        rotationPoint: 'topright',
-                        offset: { x: 0, y: -25 }
-                    }
+                        horizontalAlignment: 'right',},
+                    gridLines: { visible: true },
+                    flip: false
                 },
                 valueAxis:
-                {
-                    visible: true,
-                    title: { text: 'Daily Closing Price<br>' },
-                    tickMarks: { color: '#BCBCBC' }
+                {  
+                    flip: false,
+                    title:{text: 'Clave'},
+                    labels: {
+                        horizontalAlignment: 'right',
+                        visible: true,
+                        formatFunction: function (value) {
+                            return (value);
+                        }
+                    }
                 },
-                colorScheme: 'scheme04',
+                colorScheme: 'scheme03',
                 seriesGroups:
                     [
                         {
-                            type: 'line',
+                            type: 'column',
+                            orientation: 'vertical',
+                            columnsGapPercent: 200,
+                            toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'cajas', displayText: 'cajas' },
-                                    { dataField: 'disp', displayText: 'disp' }
+                                    { dataField: 'numart', displayText: 'clave' }
                                 ]
                         }
                     ]
             };
-            // configura la grafica
+            // ejecutar grafica
             $('#chartContainer3').jqxChart(settings);
         });
 
 
+$(document).ready(function(){
+            //probando con json    
+                var data = 
+                {
+                    datatype : 'json',
+                    datafields:[
+                    {name: 'lote'},
+                    {name: 'disp'},
+                    {name: 'numart'}
+                    ],
+                    url: 'datos/lotesmty.json'
+                };
 
+                var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
 
-
-
-
-// grafica 4
-$(document).ready(function () {
-            // preparando los datos
-            var source =
-            {
-                datatype: "json",
-                datafields: [
-                    { name: 'caducidad' },
-                    { name: 'cajas' },
-                    { name: 'disp' }
-                ],
-                url: 'datos/lotesmty.json'
-            };
-            var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            // preparando la configuracion de la grafica
+            // configurar grafica
             var settings = {
-                title: "U.S. Stock Market Index Performance",
-                description: "NASDAQ Composite compared to S&P 500",
-                enableAnimations: true,
+                title: "Grafica de CXP",
+                description: "Estadistica de cobro por pago",
                 showLegend: true,
-                padding: { left: 10, top: 5, right: 10, bottom: 5 },
-                titlePadding: { left: 50, top: 0, right: 0, bottom: 10 },
+                enableAnimations: true,
+                padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
+                titlePadding: { left: Tleft, top: Ttop, right: Trig, bottom: Tbot },
+
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField: 'Date',
-                    formatFunction: function (value) {
-                        return value.getDate() + '-' + months[value.getMonth()] + '-' + value.getFullYear();
-                    },
-                    type: 'date',
-                    baseUnit: 'month',
-                    valuesOnTicks: true,
-                    minValue: '01-01-2014',
-                    maxValue: '01-01-2015',
-                    tickMarks: {
-                        visible: true,
-                        interval: 1,
-                        color: '#BCBCBC'
-                    },
-                    unitInterval: 1,
-                    gridLines: {
-                        visible: true,
-                        interval: 3,
-                        color: '#BCBCBC'
-                    },
+                    dataField:'lote',
+               title:{text: 'Lotes'},
                     labels: {
-                        angle: -45,
-                        rotationPoint: 'topright',
-                        offset: { x: 0, y: -25 }
-                    }
+                        horizontalAlignment: 'right',},
+                    gridLines: { visible: true },
+                    flip: false
                 },
                 valueAxis:
-                {
-                    visible: true,
-                    title: { text: 'Daily Closing Price<br>' },
-                    tickMarks: { color: '#BCBCBC' }
+                {  
+                    flip: false,
+                    title:{text: 'Clave'},
+                    labels: {
+                        horizontalAlignment: 'right',
+                        visible: true,
+                        formatFunction: function (value) {
+                            return (value);
+                        }
+                    }
                 },
                 colorScheme: 'scheme04',
                 seriesGroups:
                     [
                         {
-                            type: 'line',
+                            type: 'column',
+                            orientation: 'vertical',
+                            columnsGapPercent: 200,
+                            toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'cajas', displayText: 'cajas' },
-                                    { dataField: 'disp', displayText: 'disp' }
+                                    { dataField: 'numart', displayText: 'clave' }
                                 ]
                         }
                     ]
             };
-            // configura la grafica
+            // ejecutar grafica
             $('#chartContainer4').jqxChart(settings);
         });
+
+
+
+
+function ventas2(){
+    window.location.replace('ventas2imd3.html')
+};
+
