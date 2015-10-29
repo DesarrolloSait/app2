@@ -19,10 +19,11 @@ li:hover{
 }
 
 
-/*contenido en el sector*/
+/*contenido de lo que abarca los charts*/
 #contain{
-    margin-left:2px;
+    margin-left:120px;
 }
+
 /*ventas, cobranza, inventario y costo por pago*/
 #ventas{
 
@@ -152,21 +153,14 @@ li:hover{
     position: static;
     margin: -65px 17px -35px 50px;
 }
-    /*login interfaz*/
-/*#exampleInputEmail1,#exampleInputPassword1{
-    width:60%;
+ 
+/*contenido de lo que abarca los charts*/
+#contain{
+    margin-left:0;
 }
-.login-int{
-    background-color: #F5F5F5;
-    border-radius: 6px;
-    width: 400px;
-    height: 300px;
-    margin-left: 100px;
-
+#chartContainer, #chartContainer2, #chartContainer3, #chartContainer4{
+    margin-left: 50px; 
 }
-.checkbox{
-    margin-right: 200px;
-}*/
 }
 /*responsive 768px min*/
 @media (min-width: 768px){
@@ -191,36 +185,17 @@ li:hover{
     position: static;
     margin: -65px 17px -35px 50px;
 }
-/*login interfaz*/
-/*#exampleInputEmail1,#exampleInputPassword1{
-    width:40%;
+/*contenido de lo que abarca los charts*/
+#contain{
+    margin-left:0px;
 }
-.login-int{
-    background-color: #F5F5F5;
-    border-radius: 6px;
-    width: 420px;
-    height: 300px;
-    margin-left:250px;
-
+#chartContainer, #chartContainer2, #chartContainer3, #chartContainer4{
+    margin-left: 35px; 
 }
-.checkbox{
-    margin-right: 100px;
-}*/
 }
 @media (min-width: 1200px) {
-    /*login interfaz*/
-/*#exampleInputEmail1,#exampleInputPassword1{
-    width:60%;
+/*contenido de lo que abarca los charts*/
+#contain{
+    margin-left:120px;
 }
-.login-int{
-    background-color: #F5F5F5;
-    border-radius: 6px;
-    width: 420px;
-    height: 300px;
-    margin-left: 500px;
-
-}
-.checkbox{
-    margin-right: 200px;
-}*/
 }

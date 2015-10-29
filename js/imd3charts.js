@@ -25,8 +25,8 @@ $(document).ready(function(){
 
             // configurar grafica
             var settings = {
-                title: "Venta del dia",
-                description: "Estadistica de la venta del dia",
+                title: " ",
+                description: " ",
                 showLegend: true,
                 enableAnimations: true,
                 padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
@@ -45,7 +45,7 @@ $(document).ready(function(){
                 valueAxis:
                 {   minValue: 0,
                     maxValue: 50,
-                    flip: false,
+                    flip: true,
                     title:{text: 'ventas'},
                     labels: {
                         horizontalAlignment: 'right',
@@ -60,8 +60,8 @@ $(document).ready(function(){
                     [
                         {
                             type: 'column',
-                            orientation: 'vertical',
-                            columnsGapPercent: 200,
+                            orientation: 'horizontal',
+                            columnsGapPercent: 50,
                             toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
                                     { dataField: 'ventas', displayText: 'ventas' }
@@ -84,19 +84,19 @@ $(document).ready(function(){
                 {
                     datatype : 'json',
                     datafields:[
-                    {name: 'lote'},
-                    {name: 'disp'},
-                    {name: 'numart'}
+                    {name: 'Name'},
+                    {name: 'Country'},
+                    {name: 'Value'}
                     ],
-                    url: 'datos/lotesmty.json'
+                    url: 'datos/cobranza.json'
                 };
 
                 var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
 
             // configurar grafica
             var settings = {
-                title: "Cobranza",
-                description: "Estadistica de cobranza",
+                title: " ",
+                description: " ",
                 showLegend: true,
                 enableAnimations: true,
                 padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
@@ -105,8 +105,8 @@ $(document).ready(function(){
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField:'lote',
-               title:{text: 'Lotes'},
+                    dataField:'Name',
+               title:{text: 'Clientes'},
                     labels: {
                         horizontalAlignment: 'right',},
                     gridLines: { visible: true },
@@ -115,7 +115,7 @@ $(document).ready(function(){
                 valueAxis:
                 {  
                     flip: false,
-                    title:{text: 'Clave'},
+                    title:{text: 'Adeudo'},
                     labels: {
                         horizontalAlignment: 'right',
                         visible: true,
@@ -128,12 +128,12 @@ $(document).ready(function(){
                 seriesGroups:
                     [
                         {
-                            type: 'column',
+                            type: 'line',
                             orientation: 'vertical',
                             columnsGapPercent: 200,
                             toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'numart', displayText: 'clave' }
+                                    { dataField: 'Value', displayText: 'Clientes' }
                                 ]
                         }
                     ]
@@ -150,19 +150,20 @@ $(document).ready(function(){
                 {
                     datatype : 'json',
                     datafields:[
-                    {name: 'lote'},
-                    {name: 'disp'},
-                    {name: 'numart'}
+                    {name: '_id'},
+                    {name: 'balance'},
+                    {name: 'name'},
+                    {name: 'first'}
                     ],
-                    url: 'datos/lotesmty.json'
+                    url: 'datos/inventario.json'
                 };
 
                 var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
 
             // configurar grafica
             var settings = {
-                title: "Inventario",
-                description: "Estadistica de inventario",
+                title: " ",
+                description: " ",
                 showLegend: true,
                 enableAnimations: true,
                 padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
@@ -171,7 +172,7 @@ $(document).ready(function(){
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField:'lote',
+                    dataField:'balance',
                title:{text: 'Lotes'},
                     labels: {
                         horizontalAlignment: 'right',},
@@ -196,10 +197,10 @@ $(document).ready(function(){
                         {
                             type: 'column',
                             orientation: 'vertical',
-                            columnsGapPercent: 200,
+                            columnsGapPercent: 100,
                             toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'numart', displayText: 'clave' }
+                                    { dataField: '_id', displayText: 'id' }
                                 ]
                         }
                     ]
@@ -215,19 +216,19 @@ $(document).ready(function(){
                 {
                     datatype : 'json',
                     datafields:[
-                    {name: 'lote'},
-                    {name: 'disp'},
-                    {name: 'numart'}
+                    {name: 'Name'},
+                    {name: 'Value'},
+                    {name: '_id'}
                     ],
-                    url: 'datos/lotesmty.json'
+                    url: 'datos/costo_pago.json'
                 };
 
                 var dataAdapter = new $.jqx.dataAdapter(data, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + data.url + '" : ' + error); } });
 
             // configurar grafica
             var settings = {
-                title: "Grafica de CXP",
-                description: "Estadistica de cobro por pago",
+                title: " ",
+                description: " ",
                 showLegend: true,
                 enableAnimations: true,
                 padding: { left: Plft, top: Ptop, right: Prig, bottom: Pbot },
@@ -236,8 +237,8 @@ $(document).ready(function(){
                 source: dataAdapter,
                 xAxis:
                 {
-                    dataField:'lote',
-               title:{text: 'Lotes'},
+                    dataField:'Name',
+               title:{text: 'Clientes'},
                     labels: {
                         horizontalAlignment: 'right',},
                     gridLines: { visible: true },
@@ -246,7 +247,7 @@ $(document).ready(function(){
                 valueAxis:
                 {  
                     flip: false,
-                    title:{text: 'Clave'},
+                    title:{text: 'Valor'},
                     labels: {
                         horizontalAlignment: 'right',
                         visible: true,
@@ -259,12 +260,12 @@ $(document).ready(function(){
                 seriesGroups:
                     [
                         {
-                            type: 'column',
+                            type: 'splinearea',
                             orientation: 'vertical',
                             columnsGapPercent: 200,
                             toolTipFormatSettings: { thousandsSeparator: ',' },
                             series: [
-                                    { dataField: 'numart', displayText: 'clave' }
+                                    { dataField: 'Value', displayText: 'Clientes' }
                                 ]
                         }
                     ]
