@@ -1,13 +1,19 @@
-<!doctype html>
-<html lang="es-MX">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-	<!--Libreria de estilos-->
-	<link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" type="text/css" />
+  <meta name="keywords" content="jqxValidator, jQuery Validation, jQWidgets, Default Functionality" />
+  <meta name="description" content="jqxValidator is a plug-in which enables you to validate html forms.
+        It has a set of built-in rules (required inputs, e-mail, SSN, ZIP, max value, min value, interval etc.) 
+         for validating the user input. You can also write a custom rule which will fit best to your requirements." />
+    <meta charset="utf-8">     
+    <title id='Description'>This demo demonstrates the basic functionality of the jqxValidator plugin.</title>
+    <!-- Librerias de estilos -->
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.metrodark.css" type="text/css" />
     <link rel="stylesheet" href="estilos/estilo.css">
     <link rel="stylesheet" href="../styles/bootstrap.min.css" type="text/css" />
-	<title id='Description'>This demo demonstrates the basic functionality of the jqxValidator plugin.</title>
-    <!-- Libreria de jqwidgets -->
+    <!-- Librerias esenciales para funcionar jqwidgets -->
     <script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>   
     <script type="text/javascript" src="../jqwidgets/jqxcore.js"></script>
     <script type="text/javascript" src="../jqwidgets/jqxexpander.js"></script> 
@@ -21,9 +27,10 @@
     <script type="text/javascript" src="../jqwidgets/jqxinput.js"></script> 
     <script type="text/javascript" src="../scripts/demos.js"></script>
     <script type="text/javascript" src="../jqwidgets/jqxmenu.js"></script>
-    <!-- Scripts de menu y login -->
+
+    <!-- Scripts de menu y signup -->
     <script type="text/javascript" src="js/imd3menu.js"></script> 
-    <script type="text/javascript" src="js/imd3login.js"></script>
+    <script type="text/javascript" src="js/imd3signup.js"></script>
     <style type="text/css">
         .text-input
         {
@@ -35,6 +42,7 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        
         .register-table td, 
         .register-table tr
         {
@@ -52,11 +60,10 @@
         }
     </style>
 </head>
-<body class="default">
-	<header>
 
-        <!--Menu de imd3menu -->
-		<div id='jqxMenu'>
+<body class='default'>
+   <!--Menu de imd3menu -->
+    <div id='jqxMenu'>
             <!-- Empresa y logo -->
             <div class="empresa-logo">
                <a href="index.html"> <img src="imagenes/logosait.png" alt="sait_logo" id="logo"></a>
@@ -69,7 +76,7 @@
                 <div class="user">
                     <span>User1</span>
                 </div>
-                <!-- image de usuario -->
+                 <!-- image de usuario -->
                 <div class="user-img">
                     <img src="imagenes/avatar.png" alt="user-img" width="40px" height="40px">
                 </div>
@@ -80,7 +87,8 @@
                     <a href="signup2.html">Registrarse</a> 
                 </div>           
             </div> 
-            <ul>
+
+           <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="#">Mi perfil</a></li>
                 <li><a href="ventasimd3.html">Indicadores</a></li>
@@ -94,47 +102,72 @@
                 <li><a href="#Products">La empresa</a>     
             </ul>
             
-            
-        </div><br>
-        <!--
-        <div class="logos">
-            <img src="imagenes/logosait.png" id="logo">
-        </div> -->
-    </header>
+    </div><br>
+
+
+
+    
     <div class="content">
-        <!-- webstar@md3.mx   -->
-        <!-- Interfaz de login -->
-        <center>
+      <!-- Interfaz de sign up -->
+      <center>
         <div id="register">
-            <div><h3>Iniciar sesion</h3></div>
+            <div><h3>Registrarse</h3></div>
             <div>
                 <form id="testForm" action="./">
                     <table class="register-table">
-                         <tr>
-                            <td>Correo electronico:</td>
-                            <td><input type="text" id="emailInput" placeholder="someone@mail.com" class="text-input" /></td>
+                        <tr>
+                            <td>Nombre de usuario:</td>
+                            <td><input type="text" id="userInput" class="text-input" /></td>
                         </tr>
                         <tr>
                             <td>Contraseña:</td>
                             <td><input type="password" id="passwordInput" class="text-input" /></td>
-                        </tr> 
+                        </tr>
                         <tr>
-                            <td colspan="2" style="text-align: right;"><input type="button" value="Iniciar sesion" id="sendButton"/></td>
+                            <td>Confirma contraseña:</td>
+                            <td><input type="password" id="passwordConfirmInput" class="text-input" /></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre completo:</td>
+                            <td><input type="text" id="realNameInput" class="text-input" /></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de nacimiento:</td>
+                            <td><div id="birthInput"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Correo electronico:</td>
+                            <td><input type="text" id="emailInput" placeholder="someone@mail.com" class="text-input" /></td>
+                        </tr>
+                        <tr>
+                            <td>Numero de seguro social:</td>
+                            <td><div id="ssnInput"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Telefono:</td>
+                            <td><div id="phoneInput"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Codigo Postal:</td>
+                            <td><div id="zipInput"></div></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding: 5px;"><div id="acceptInput" style="margin-left: 50px;">Acepto terminos</div></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><input type="button" value="Registrarse" id="sendButton" width="20px"/></td>
                         </tr>
                     </table>
                 </form>
            </div>
         </div>
-      </center>   	   
-    
-
-
+      </center>
     </div>
 
-	<footer class="footer">
+  <footer class="footer">
        <div class="container">
            <p class="text-muted">Footer Indicadores MD3</p>
        </div>
-	</footer>
+  </footer>
 </body>
 </html>

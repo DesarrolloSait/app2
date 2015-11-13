@@ -30,7 +30,7 @@ li:hover{
 }
 
 /*ventas, cobranza, inventario y costo por pago*/
-#ventas{
+/*#ventas{
 
 }
 
@@ -43,6 +43,8 @@ li:hover{
 #costo-pago{
 
 }
+
+*/
 
 
 
@@ -97,7 +99,7 @@ li:hover{
     min-height:300px; 
 }
 .content{
-    height:100%;
+    height:90%;
     min-height:300px; 
 }
 
